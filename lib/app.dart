@@ -1,4 +1,6 @@
 import 'package:dhakashop/presentation/screens/email_verification_screen.dart';
+import 'package:dhakashop/presentation/screens/home_screen.dart';
+import 'package:dhakashop/presentation/screens/splash_screen.dart';
 import 'package:dhakashop/presentation/utility/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,7 +11,7 @@ class DhakaShop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  GetMaterialApp(
-      home: const EmailVerificationScreen(),
+      home: const HomeScreen(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorSchemeSeed: AppColors.primaryColor,
@@ -18,7 +20,16 @@ class DhakaShop extends StatelessWidget {
         ),
         textTheme: _buildTextTheme(),
         inputDecorationTheme: _buildInputDecorationTheme(),
-        elevatedButtonTheme: _buildElevatedButtonThemeData()
+        elevatedButtonTheme: _buildElevatedButtonThemeData(),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            foregroundColor: AppColors.primaryColor,
+          )
+        )
       ),
     );
   }

@@ -18,31 +18,35 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SvgPicture.asset(AssetsPath.appLogoSvg,width: 100,),
-            const SizedBox(height: 16,),
-            Text("Welcome Back",style: Theme.of(context).textTheme.headlineLarge,),
-            const SizedBox(height: 4,),
-            Text("Enter Your Email Address",style: Theme.of(context).textTheme.headlineSmall,),
-            const SizedBox(height: 16,),
-            TextFormField(
-              controller: _emailTEController,
-              decoration:const InputDecoration(
-                hintText: "Email"
-              ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset(AssetsPath.appLogoSvg,width: 100,),
+                const SizedBox(height: 16,),
+                Text("Welcome Back",style: Theme.of(context).textTheme.headlineLarge,),
+                const SizedBox(height: 4,),
+                Text("Enter Your Email Address",style: Theme.of(context).textTheme.headlineSmall,),
+                const SizedBox(height: 16,),
+                TextFormField(
+                  controller: _emailTEController,
+                  decoration:const InputDecoration(
+                    hintText: "Email"
+                  ),
+                ),
+                const SizedBox(height: 16,),
+                ElevatedButton(
+                  onPressed: (){
+                    Get.to(()=>OtpVerificationScreen(email: _emailTEController.text,));
+                  },
+                  child:const Text("Next"),
+                )
+              ],
             ),
-            const SizedBox(height: 16,),
-            ElevatedButton(
-              onPressed: (){
-                Get.to(()=>OtpVerificationScreen(email: _emailTEController.text,));
-              },
-              child:const Text("Next"),
-            )
-          ],
+          ),
         ),
       ),
     );

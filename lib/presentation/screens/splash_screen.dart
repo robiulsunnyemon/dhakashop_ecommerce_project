@@ -1,3 +1,4 @@
+import 'package:dhakashop/presentation/screens/email_verification_screen.dart';
 import 'package:dhakashop/presentation/screens/home_screen.dart';
 import 'package:dhakashop/presentation/utility/assets_path.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _moveToNextScreen()async{
     await Future.delayed(const Duration(seconds: 4));
-    Get.to(()=>const HomeScreen());
+    Get.to(()=>const EmailVerificationScreen());
   }
 
   @override

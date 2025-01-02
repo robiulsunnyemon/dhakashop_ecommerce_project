@@ -1,7 +1,9 @@
+import 'package:dhakashop/presentation/screens/complete_profile_screen.dart';
 import 'package:dhakashop/presentation/utility/app_colors.dart';
 import 'package:dhakashop/presentation/utility/assets_path.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OtpVerificationScreen extends StatefulWidget {
@@ -19,65 +21,71 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-
-            SvgPicture.asset(
-              AssetsPath.appLogoSvg,
-              width: 100,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+          
+                SvgPicture.asset(
+                  AssetsPath.appLogoSvg,
+                  width: 100,
+                ),
+          
+                const SizedBox(
+                  height: 16,
+                ),
+          
+                Text(
+                  "Enter OTP Code",
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
+          
+                const SizedBox(
+                  height: 4,
+                ),
+          
+                Text(
+                  "A 6 Digit OTP Code has been sent",
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+          
+                const SizedBox(
+                  height: 16,
+                ),
+          
+                _buildPinCodeTextField(context),
+          
+                const SizedBox(
+                  height: 16,
+                ),
+          
+                ElevatedButton(
+                  onPressed: () {
+                    Get.to(()=>const CompleteProfileScreen());
+                  },
+                  child: const Text("Next"),
+                ),
+          
+                const SizedBox(
+                  height: 24,
+                ),
+          
+                _buildRichText(),
+          
+                const SizedBox(
+                  height: 16,
+                ),
+          
+                TextButton(
+                    onPressed: (){},
+                    child: const Text("Resend Code"),
+                ),
+              ],
             ),
-
-            const SizedBox(
-              height: 16,
-            ),
-
-            Text(
-              "Enter OTP Code",
-              style: Theme.of(context).textTheme.headlineLarge,
-            ),
-
-            const SizedBox(
-              height: 4,
-            ),
-
-            Text(
-              "A 6 Digit OTP Code has been sent",
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
-
-            const SizedBox(
-              height: 16,
-            ),
-
-            _buildPinCodeTextField(context),
-
-            const SizedBox(
-              height: 16,
-            ),
-
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text("Next"),
-            ),
-
-            const SizedBox(
-              height: 24,
-            ),
-
-            _buildRichText(),
-
-            const SizedBox(
-              height: 16,
-            ),
-
-            TextButton(
-                onPressed: (){},
-                child: const Text("Resend Code"),
-            ),
-          ],
+          ),
         ),
       ),
     );
@@ -95,7 +103,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                   text: "This Code will expire in "
                 ),
                 TextSpan(
-                  text: "120s",
+                  text: "120s",                      //todo countdown Hw
                   style: TextStyle(
                     color: AppColors.primaryColor,
                   )
