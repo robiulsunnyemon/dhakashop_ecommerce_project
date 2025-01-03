@@ -1,5 +1,7 @@
+import 'package:dhakashop/controller_binder.dart';
 import 'package:dhakashop/presentation/screens/email_verification_screen.dart';
 import 'package:dhakashop/presentation/screens/home_screen.dart';
+import 'package:dhakashop/presentation/screens/main_bottom_navbar_screen.dart';
 import 'package:dhakashop/presentation/screens/splash_screen.dart';
 import 'package:dhakashop/presentation/utility/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +13,8 @@ class DhakaShop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  GetMaterialApp(
-      home: const HomeScreen(),
+      home:  MainBottomNavBar(),
+      initialBinding: ControllerBinder(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorSchemeSeed: AppColors.primaryColor,

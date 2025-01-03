@@ -8,4 +8,9 @@ class BottomNavController extends GetxController {
   void changeTab(int index) {
     selectedIndex.value = index;
   }
+
+  void backToHome(int index) {
+    selectedIndex.value = 0;
+  }
+
 }
